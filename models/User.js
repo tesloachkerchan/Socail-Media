@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { use } = require('../routes/Users');
 
 const userSchema = mongoose.Schema({
     userName: {
