@@ -9,6 +9,8 @@ const path = require('path')
 const userRoute = require('./routes/Users')
 const authRoute = require('./routes/auth')
 const postRoute = require('./routes/posts')
+const conversationRoute = require("./routes/conversations");
+const messageRoute = require("./routes/messages");
 dotenv.config()
 const app = express()
 const port = process.env.PORT
@@ -46,7 +48,10 @@ app.post('/api/upload', upload.single('file'), (req, res) => {
 
 app.use('/api/users', userRoute)
 app.use('/api/auth', authRoute)
-app.use('/api/post',postRoute)
+app.use('/api/post', postRoute)
+app.use("/api/conversations", conversationRoute);
+app.use("/api/messages", messageRoute);
+
 app.listen(port, (req, res) => {
     console.log(`server is running on port:${port}`)
 })
